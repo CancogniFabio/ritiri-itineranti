@@ -44,7 +44,7 @@ window.RI = {
     return '<span class="avatar-sm" style="background:' + f.color + ';width:' + size + 'px;height:' + size + 'px;font-size:' + Math.round(size * 0.36) + 'px" aria-hidden="true">' + f.initials + '</span>';
   }
   function dots(n) { var o = ''; for (var i = 1; i <= 5; i++) o += '<i class="' + (i <= n ? 'on' : '') + '"></i>'; return '<span class="dots" aria-hidden="true">' + o + '</span>'; }
-  function level(ds) { return '<span class="lvl">' + dots(ds.level) + '<span>Intensidad ' + ds.levelName.toLowerCase() + '</span></span>'; }
+  function level(ds) { return '<span class="lvl">' + dots(ds.level) + '<span>Nivel ' + ds.level + ' · ' + ds.levelName + '</span></span>'; }
   function stars(f) { return '<span class="stars" aria-label="Valutazione ' + f.rating + ' de 5">★ ' + f.rating.toFixed(1) + ' <em>(' + f.reviews + ')</em></span>'; }
   function status(d) {
     var booked = 12 - d.seats, min = D.minPax, ok = booked >= min, miss = min - booked;
@@ -85,7 +85,7 @@ window.RI = {
       count.textContent = list.length + (list.length === 1 ? ' salida' : ' salidas');
     }
     Object.keys(sel).forEach(function (k) { sel[k].addEventListener('change', run); });
-    function lvShow() { lvOut.textContent = 'hasta ' + LV[+lv.value]; }
+    function lvShow() { lvOut.textContent = 'hasta ' + lv.value + ' · ' + LV[+lv.value]; }
     lv.addEventListener('input', function () { lvShow(); run(); }); lvShow();
     document.getElementById('f-reset').addEventListener('click', function () { Object.keys(sel).forEach(function (k) { sel[k].value = ''; }); lv.value = 5; lvShow(); run(); });
     Array.prototype.forEach.call(document.querySelectorAll('[data-theme-pick]'), function (b) {
