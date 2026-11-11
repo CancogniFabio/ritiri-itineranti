@@ -440,3 +440,18 @@ input:focus,select:focus,textarea:focus{outline:3px solid rgba(182,73,43,.35);bo
 .bb .p-q{font-size:1.7rem}
 .bb .p-b{font-size:1.35rem}
 }
+/* mobile carousels, fix: items never wider than planned, start aligned */
+@media (max-width:760px){
+.posters,.stories,.billboards{scroll-snap-type:x proximity;scroll-padding-left:20px}
+.posters>.poster,.stories>.poster,.billboards>.poster{min-width:0;scroll-snap-align:start;overflow:hidden}
+.posters>.poster{flex:0 0 80%}
+.stories>.poster{flex:0 0 74%}
+.billboards>.poster{flex:0 0 86%}
+.posters .p-q,.stories .p-q,.posters .poster.photo .p-q{font-size:1.45rem;line-height:1.12}
+.bb .p-q{font-size:1.45rem;line-height:1.12;max-width:none}
+.bb .p-b{font-size:1.2rem}
+.posters .p-foot .logo,.stories .p-foot .logo,.billboards .p-foot .logo{font-size:13px}
+.poster-in{padding:22px 18px}
+.bb .p-foot{flex-direction:column;align-items:flex-start;gap:6px}
+}
+@media (max-width:760px){.posters,.stories,.billboards{justify-content:flex-start!important}}
