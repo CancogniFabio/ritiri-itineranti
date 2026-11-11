@@ -420,3 +420,13 @@ input:focus,select:focus,textarea:focus{outline:3px solid rgba(182,73,43,.35);bo
 @media (max-width:560px){.posters{grid-template-columns:1fr}.posters .poster{aspect-ratio:4/5}.posters .poster.photo{aspect-ratio:4/5}.posters .poster.photo .p-q{font-size:1.9rem}.p-q{font-size:1.9rem}}
 @media (max-width:960px){.stories{grid-template-columns:repeat(2,minmax(0,280px))}}
 @media (max-width:560px){.stories{grid-template-columns:minmax(0,320px);justify-content:center}}
+/* mobile: one row, swipe right */
+@media (max-width:760px){
+.posters,.stories,.billboards{display:flex!important;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;padding:4px 20px 18px;margin-left:-20px;margin-right:-20px;scrollbar-width:none}
+.posters::-webkit-scrollbar,.stories::-webkit-scrollbar,.billboards::-webkit-scrollbar{display:none}
+.posters>.poster,.stories>.poster{flex:0 0 78%;scroll-snap-align:center}
+.posters .poster,.posters .poster.photo{aspect-ratio:2/3}
+.stories>.poster{flex-basis:70%}
+.billboards>.poster{flex:0 0 88%;scroll-snap-align:center;aspect-ratio:4/3}
+.posters .poster.photo .p-q,.p-q{font-size:1.7rem}
+}
