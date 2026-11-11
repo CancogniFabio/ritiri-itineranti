@@ -430,3 +430,13 @@ input:focus,select:focus,textarea:focus{outline:3px solid rgba(182,73,43,.35);bo
 .billboards>.poster{flex:0 0 88%;scroll-snap-align:center;aspect-ratio:4/3}
 .posters .poster.photo .p-q,.p-q{font-size:1.7rem}
 }
+/* mobile carousels: cards grow with their text, never clipped */
+@media (max-width:760px){
+.posters .poster,.posters .poster.photo,.stories>.poster,.billboards>.poster{aspect-ratio:auto!important;height:auto}
+.posters>.poster{min-height:480px}
+.stories>.poster{min-height:540px}
+.billboards>.poster{min-height:340px}
+.posters .poster-in,.stories .poster-in,.billboards .poster-in{min-height:inherit;height:auto;justify-content:flex-end}
+.bb .p-q{font-size:1.7rem}
+.bb .p-b{font-size:1.35rem}
+}
