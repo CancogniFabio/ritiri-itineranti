@@ -382,4 +382,32 @@ input:focus,select:focus,textarea:focus{outline:3px solid rgba(182,73,43,.35);bo
 .voice ul{margin:8px 0 0;padding-left:1.2em;display:grid;gap:6px}
 
 .posters .poster.photo{aspect-ratio:9/16}
-.poster.photo .p-q{font-size:1.55rem;line-height:1.12}
+.posters .poster.photo .p-q{font-size:1.55rem;line-height:1.12}
+.poses{grid-template-columns:repeat(5,1fr)}
+@media (max-width:860px){.poses{grid-template-columns:repeat(2,1fr)}}
+.pose svg{height:130px}
+.variants{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:20px}
+@media (max-width:860px){.variants{grid-template-columns:1fr}}
+.variant{background:var(--paper);border:1px solid var(--line);border-radius:20px;padding:20px}
+.variant.pick{border:2px solid var(--terra)}
+.variant .v-art{height:120px;display:grid;place-items:center;margin-bottom:10px}
+.variant .v-art svg{height:110px;width:110px}
+.variant p{color:var(--ink-soft);font-size:.95rem;margin:6px 0 0}
+.palette{grid-template-columns:repeat(4,1fr)}
+.palette.accents{grid-template-columns:repeat(3,1fr);max-width:620px;margin-top:12px}
+.palette.accents .sw div{height:44px}
+@media (max-width:860px){.palette{grid-template-columns:1fr 1fr}.palette.accents{grid-template-columns:repeat(3,1fr)}}
+.apps{grid-template-columns:repeat(4,1fr)}
+@media (max-width:1000px){.apps{grid-template-columns:1fr 1fr}}
+@media (max-width:560px){.apps{grid-template-columns:1fr}}
+.stickers{height:200px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px}
+.sticker{display:inline-block;background:var(--saffron);border-radius:999px;padding:12px 20px;box-shadow:0 0 0 5px #fff,0 8px 18px rgba(0,0,0,.18);transform:rotate(-6deg)}
+.sticker .logo{font-size:17px;color:var(--ink)}
+.sticker .logo .fig{color:var(--sand)}
+.sticker.round{width:70px;height:70px;padding:0;display:grid;place-items:center;background:var(--terra);transform:rotate(8deg)}
+.sticker.round svg{width:62%;height:62%}
+.posters{grid-template-columns:repeat(4,1fr)}
+.billboards{display:grid;gap:22px}
+.stories{grid-template-columns:repeat(3,280px)}
+.poster.story{display:block}
+.story .poster-in{height:100%}
