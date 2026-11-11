@@ -218,3 +218,10 @@ input:focus,select:focus,textarea:focus{outline:3px solid rgba(182,73,43,.35);bo
 .day-rhythm{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-top:28px}
 .day-rhythm span{background:#F3E6CC;border-radius:999px;padding:6px 14px;font-weight:600;font-size:.92rem}
 .step-inner{display:block;font-style:italic;font-family:'Cormorant Garamond',Georgia,serif;font-size:1.15rem;color:var(--journey-accent);margin:-4px 0 10px}
+/* language toggle */
+.lang-toggle{display:inline-flex;border:1.5px solid var(--ink);border-radius:999px;overflow:hidden;margin-left:auto;margin-right:14px;flex:none}
+.lang-toggle a{padding:6px 12px;font-weight:700;font-size:.85rem;text-decoration:none;color:var(--ink);min-height:34px;display:inline-flex;align-items:center}
+.lang-toggle a[aria-current]{background:var(--ink);color:var(--sand)}
+@media (min-width:861px){.site-header .wrap{gap:20px}.lang-toggle{order:3;margin:0}}
+@media (max-width:860px){.site-header .wrap{gap:8px}.logo{font-size:18px}.lang-toggle{margin-right:4px}.lang-toggle a{padding:4px 9px;font-size:.78rem;min-height:32px}.menu-btn{padding:6px 12px}}
+@media (max-width:360px){.logo{font-size:16px}}
