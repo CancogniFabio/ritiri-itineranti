@@ -411,3 +411,8 @@ input:focus,select:focus,textarea:focus{outline:3px solid rgba(182,73,43,.35);bo
 .stories{grid-template-columns:repeat(3,280px)}
 .poster.story{display:block}
 .story .poster-in{height:100%}
+.gift{display:grid;grid-template-columns:1.2fr 1fr;gap:28px;align-items:center;margin-top:28px;background:var(--paper);border:1px solid var(--line);border-radius:24px;padding:28px}
+@media (max-width:860px){.gift{grid-template-columns:1fr}}
+.gift-art svg{width:100%;height:auto}
+.gift h3{margin-top:0}
+.posters .poster{aspect-ratio:9/16}
