@@ -1,9 +1,9 @@
 /* Mock-up data: example departures and example facilitator profiles */
 window.RI = {
   destinations: {
-    marocco: { name: "Desert Way", country: "Marocco", page: "marocco.html", img: "img/dunes.jpg", days: "7 giorni", price: 1800, color: "#B6492B" },
-    nilo: { name: "La Via del Nilo", country: "Egitto", page: "nilo.html", img: "img/felucca.jpg", days: "8 giorni", price: 2600, color: "#17676A" },
-    cappadocia: { name: "Valli di Pietra", country: "Turchia", page: "cappadocia.html", img: "img/balloons.jpg", days: "7 giorni", price: 2400, color: "#9B3F67" }
+    marocco: { name: "Desert Way", country: "Marocco", page: "marocco.html", img: "img/dunes.jpg", days: "7 giorni", price: 2000, color: "#B6492B" },
+    nilo: { name: "La Via del Nilo", country: "Egitto", page: "nilo.html", img: "img/felucca.jpg", days: "8 giorni", price: 2800, color: "#17676A" },
+    cappadocia: { name: "Valli di Pietra", country: "Turchia", page: "cappadocia.html", img: "img/balloons.jpg", days: "7 giorni", price: 2600, color: "#9B3F67" }
   },
   facilitators: [
     { id: "fabio-flavia", name: "Fabio e Flavia", role: "Fondatori · breathwork, yoga e Deep Coaching", themes: ["Breathwork", "Yoga", "Meditazione"], color: "#23203B", initials: "F&F", base: "Lisbona", founders: true,

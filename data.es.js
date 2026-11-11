@@ -1,9 +1,9 @@
 /* Mock-up data: example departures and example facilitator profiles */
 window.RI = {
   destinations: {
-    marocco: { name: "Desert Way", country: "Marruecos", page: "marocco-es.html", img: "img/dunes.jpg", days: "7 días", price: 1800, color: "#B6492B" },
-    nilo: { name: "La Vía del Nilo", country: "Egipto", page: "nilo-es.html", img: "img/felucca.jpg", days: "8 días", price: 2600, color: "#17676A" },
-    cappadocia: { name: "Valles de Piedra", country: "Turquía", page: "cappadocia-es.html", img: "img/balloons.jpg", days: "7 días", price: 2400, color: "#9B3F67" }
+    marocco: { name: "Desert Way", country: "Marruecos", page: "marocco-es.html", img: "img/dunes.jpg", days: "7 días", price: 2000, color: "#B6492B" },
+    nilo: { name: "La Vía del Nilo", country: "Egipto", page: "nilo-es.html", img: "img/felucca.jpg", days: "8 días", price: 2800, color: "#17676A" },
+    cappadocia: { name: "Valles de Piedra", country: "Turquía", page: "cappadocia-es.html", img: "img/balloons.jpg", days: "7 días", price: 2600, color: "#9B3F67" }
   },
   facilitators: [
     { id: "fabio-flavia", name: "Fabio y Flavia", role: "Fundadores · breathwork, yoga y Deep Coaching", themes: ["Breathwork", "Yoga", "Meditación"], color: "#23203B", initials: "F&F", base: "Lisboa", founders: true,
@@ -50,7 +50,7 @@ window.RI = {
       '<div class="dep-body"><span class="dep-date">' + d.date + '</span><h3>' + d.title + '</h3>' +
       '<span class="dep-trip">' + ds.name + ' · ' + ds.days + '</span>' +
       '<div class="dep-fac">' + avatar(f, 34) + '<div><strong>' + f.name + '</strong><span>' + d.theme + '</span></div></div>' +
-      '<div class="dep-foot"><span class="dep-price">' + eur(ds.price) + '</span><span class="dep-seats' + few + '">' + d.seats + ' posti su 12</span></div></div></a>';
+      '<div class="dep-foot"><span class="dep-price">' + eur(ds.price) + '</span><span class="dep-seats' + few + '">' + d.seats + ' plazas de 12</span></div></div></a>';
   }
   window.RIrender = { fac: fac, eur: eur, avatar: avatar, depCard: depCard };
 
@@ -71,7 +71,7 @@ window.RI = {
         return (!sel.dest.value || d.dest === sel.dest.value) && (!sel.month.value || d.month == sel.month.value) &&
           (!sel.theme.value || d.theme === sel.theme.value) && (!sel.fac.value || d.fac === sel.fac.value);
       }).sort(function (a, b) { return a.month - b.month; });
-      grid.innerHTML = list.length ? list.map(depCard).join('') : '<p class="empty">Nessuna partenza con questi filtri. Prova a toglierne uno.</p>';
+      grid.innerHTML = list.length ? list.map(depCard).join('') : '<p class="empty">No hay salidas con estos filtros. Prueba a quitar alguno.</p>';
       count.textContent = list.length + (list.length === 1 ? ' salida' : ' salidas');
     }
     Object.keys(sel).forEach(function (k) { sel[k].addEventListener('change', run); });
@@ -88,9 +88,9 @@ window.RI = {
     var dest = tripDeps.getAttribute('data-dest'), ds = D.destinations[dest];
     tripDeps.innerHTML = D.departures.filter(function (d) { return d.dest === dest; }).map(function (d) {
       var f = fac(d.fac);
-      return '<article class="dep-row"><div class="dep-row-date"><strong>' + d.date + '</strong><span class="dep-seats' + (d.seats <= 4 ? ' few' : '') + '">' + d.seats + ' posti su 12</span></div>' +
+      return '<article class="dep-row"><div class="dep-row-date"><strong>' + d.date + '</strong><span class="dep-seats' + (d.seats <= 4 ? ' few' : '') + '">' + d.seats + ' plazas de 12</span></div>' +
         '<div class="dep-row-fac">' + avatar(f, 52) + '<div><span class="dep-theme">' + d.theme + '</span><h3>' + d.title + '</h3><span>con ' + f.name + ' · ' + f.role + '</span></div></div>' +
-        '<div class="dep-row-cta"><span class="dep-price">' + eur(ds.price) + '</span><button class="btn accent" type="button" data-book="' + d.id + '">Richiedi un posto</button></div></article>';
+        '<div class="dep-row-cta"><span class="dep-price">' + eur(ds.price) + '</span><button class="btn accent" type="button" data-book="' + d.id + '">Solicita una plaza</button></div></article>';
     }).join('');
   }
 
@@ -116,13 +116,13 @@ window.RI = {
   if (net) {
     var chips = document.getElementById('net-chips'), all = {};
     D.facilitators.forEach(function (f) { f.themes.forEach(function (t) { all[t] = 1; }); });
-    chips.innerHTML = '<button type="button" class="chip on" data-t="">Tutti</button>' + Object.keys(all).sort().map(function (t) { return '<button type="button" class="chip" data-t="' + t + '">' + t + '</button>'; }).join('');
+    chips.innerHTML = '<button type="button" class="chip on" data-t="">Todos</button>' + Object.keys(all).sort().map(function (t) { return '<button type="button" class="chip" data-t="' + t + '">' + t + '</button>'; }).join('');
     function draw(t) {
       net.innerHTML = D.facilitators.filter(function (f) { return !t || f.themes.indexOf(t) > -1; }).map(function (f) {
         var deps = D.departures.filter(function (d) { return d.fac === f.id; });
-        return '<article class="fac-card">' + avatar(f, 76) + '<h3>' + f.name + (f.founders ? ' <span class="badge">Fondatori</span>' : '') + '</h3><span class="fac-role">' + f.role + ' · ' + f.base + '</span>' +
+        return '<article class="fac-card">' + avatar(f, 76) + '<h3>' + f.name + (f.founders ? ' <span class="badge">Fundadores</span>' : '') + '</h3><span class="fac-role">' + f.role + ' · ' + f.base + '</span>' +
           '<p>' + f.bio + '</p><div class="fac-themes">' + f.themes.map(function (x) { return '<span>' + x + '</span>'; }).join('') + '</div>' +
-          '<div class="fac-deps"><strong>Prossimi viaggi</strong>' + deps.map(function (d) { var ds = D.destinations[d.dest]; return '<a href="' + ds.page + '#date">' + ds.country + ' · ' + d.date + '</a>'; }).join('') + '</div></article>';
+          '<div class="fac-deps"><strong>Próximos viajes</strong>' + deps.map(function (d) { var ds = D.destinations[d.dest]; return '<a href="' + ds.page + '#date">' + ds.country + ' · ' + d.date + '</a>'; }).join('') + '</div></article>';
       }).join('');
     }
     chips.addEventListener('click', function (e) {
