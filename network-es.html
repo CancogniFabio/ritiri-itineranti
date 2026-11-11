@@ -21,21 +21,32 @@
 <span class="eyebrow">La red</span><h1>Quién te acompaña</h1>
 <p class="lead">Profesores de yoga, astrólogos, sound healers y coaches. Cada uno ha pasado nuestra selección y nuestra formación, y aporta al viaje su práctica.</p>
 <p class="demo-note">Maqueta: los perfiles de abajo son ejemplos, salvo los fundadores.</p>
+<div class="trust">
+<div><strong>1 · Selección</strong><span>Experiencia, valores y una videollamada con nosotros.</span></div>
+<div><strong>2 · Formación</strong><span>Método, seguridad y enfoque trauma-aware.</span></div>
+<div><strong>3 · Voto de la comunidad</strong><span>Después de cada viaje los participantes dejan su valoración. Las valoraciones son públicas.</span></div>
+<div><strong>4 · Solo se quedan los mejores</strong><span>Quien baja de 4,5 estrellas deja de guiar. Quien saca 5 de 5 recibe un bonus.</span></div>
+</div>
 </div></section>
 <section style="padding-top:0"><div class="wrap">
 <div class="chips" id="net-chips" role="group" aria-label="Filtrar por tema"></div>
 <div class="fac-grid" id="net-grid"></div>
 </div></section>
+<section id="proponi" style="padding-top:0"><div class="wrap"><div class="propose">
+<div><span class="eyebrow">Tu profesor favorito</span><h2>Propón un facilitador</h2><p>¿Tienes una profesora de yoga que adoras, un coach que te cambió la vida, una astróloga que siempre acierta? Recomiéndanoslo o mándale el enlace de esta página. Si entra en la red y viajáis juntos, tu próximo retiro tiene descuento.</p></div>
+<form id="propose-form"><label>Nombre del facilitador<input type="text" required></label><label>Instagram o web<input type="text"></label><label>¿Por qué él o ella?<textarea rows="3"></textarea></label><label>Tu email<input type="email" required></label><button class="btn accent" type="submit">Proponer</button><p class="note propose-done" hidden>¡Gracias! En una web real lo contactaríamos nosotros. En esta maqueta no se envía nada.</p></form>
+</div></div></section>
 <section style="padding-top:0"><div class="wrap"><div class="cta-band">
 <div><h2>¿Quieres formar parte de la red?</h2><p>Si guías prácticas de grupo y sueñas con llevarlas de viaje, nos encantaría conocerte.</p></div>
 <div><a class="btn" href="diventa-facilitatore-es.html">Descubre cómo funciona</a></div>
 </div></div></section>
 </main>
 <script src="data.es.js"></script>
+<script>document.getElementById('propose-form').addEventListener('submit',function(e){e.preventDefault();e.target.querySelector('.propose-done').hidden=false});</script>
 <footer class="site-footer" id="contatti"><div class="wrap"><div class="foot">
 <div><a class="logo" href="index-es.html" aria-label="Ritiri Itineranti, inicio">RITIR<svg class="fig g1" viewBox="0 0 46 100" aria-hidden="true"><g transform="rotate(5 23 100)"><circle cx="23" cy="18" r="12.5" fill="currentColor"/><rect x="10" y="34" width="26" height="32" rx="6" fill="currentColor"/><path d="M17 58 L9.5 93.5 M29 58 L35 93.5" stroke="currentColor" stroke-width="12.6" stroke-linecap="round" fill="none"/></g></svg><svg class="fig g2" viewBox="0 0 46 100" aria-hidden="true"><g transform="rotate(5 23 100)"><circle cx="23" cy="18" r="12.5" fill="currentColor"/><rect x="10" y="34" width="26" height="32" rx="6" fill="currentColor"/><path d="M17 58 L9.5 93.5 M29 58 L35 93.5" stroke="currentColor" stroke-width="12.6" stroke-linecap="round" fill="none"/></g></svg>TINERANTI</a><p style="margin-top:16px;color:var(--ink-soft);max-width:30em">Viajes transformadores en grupos pequeños, guiados por una red de facilitadores seleccionados.</p></div>
 <div><h4>Viajes</h4><ul><li><a href="marocco-es.html">Desert Way, Marruecos</a></li><li><a href="nilo-es.html">La Vía del Nilo, Egipto</a></li><li><a href="cappadocia-es.html">Valles de Piedra, Turquía</a></li><li><a href="index-es.html#viaggi">Todas las salidas</a></li></ul></div>
-<div><h4>Facilitadores</h4><ul><li><a href="network-es.html">La red</a></li><li><a href="diventa-facilitatore-es.html">Hazte facilitador</a></li><li><a href="area-facilitatori-es.html">Área de facilitadores</a></li><li><a href="mailto:hello@innertravels.world">hello@innertravels.world</a></li></ul></div>
+<div><h4>Facilitadores</h4><ul><li><a href="network-es.html">La red</a></li><li><a href="diventa-facilitatore-es.html">Hazte facilitador</a></li><li><a href="area-facilitatori-es.html">Área de facilitadores</a></li><li><a href="campagne-es.html">Ideas para las campañas</a></li><li><a href="mailto:hello@innertravels.world">hello@innertravels.world</a></li></ul></div>
 </div><p class="copy">© 2026 Ritiri Itineranti · Maqueta de demostración: fechas, perfiles de facilitadores y datos son ejemplos · Fotos de Unsplash</p></div></footer>
 <script>
 (function(){var b=document.querySelector('.menu-btn'),n=document.getElementById('nav');if(!b)return;b.addEventListener('click',function(){var o=n.classList.toggle('open');b.setAttribute('aria-expanded',o)});n.addEventListener('click',function(e){if(e.target.tagName==='A'){n.classList.remove('open');b.setAttribute('aria-expanded',false)}})})();

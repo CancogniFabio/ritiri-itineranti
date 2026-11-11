@@ -26,6 +26,7 @@
 <label><span>Mes</span><select id="f-month"><option value="">Cualquiera</option></select></label>
 <label><span>Tema</span><select id="f-theme"><option value="">Todos</option></select></label>
 <label><span>Facilitador</span><select id="f-fac"><option value="">Todos</option></select></label>
+<label class="lv"><span>Intensidad <output id="f-level-out" for="f-level"></output></span><input type="range" id="f-level" min="1" max="5" value="5" step="1" aria-label="Intensidad máxima del viaje"></label>
 <a class="btn accent" href="#viaggi">Buscar</a>
 </form>
 </div></section>
@@ -38,6 +39,24 @@
 <div><h3>Gente como tú</h3><p>Grupos pequeños y unidos. Se sale entre desconocidos y se vuelve con amigos con los que repetir.</p></div>
 <div><h3>El viaje sigue en casa</h3><p>Círculos online entre un viaje y otro, encuentros presenciales en las ciudades y un grupo privado. La comunidad no termina en el aeropuerto.</p></div>
 </div></div></section>
+
+<section class="perte" id="per-te"><div class="wrap">
+<span class="eyebrow">Los Viajeros Itinerantes</span>
+<h2>Estos retiros son para ti si...</h2>
+<div class="perte-grid">
+<div class="pt">estás en plena transición y aún no sabes hacia dónde</div>
+<div class="pt">quieres cambiar de vida, o al menos de trabajo</div>
+<div class="pt">te han dejado. O has dejado tú</div>
+<div class="pt">llevas tres años diciendo "este año me tomo tiempo para mí"</div>
+<div class="pt">trabajas mucho y respiras poco</div>
+<div class="pt">quieres viajar solo, pero no solo</div>
+<div class="pt fun">echas de menos los ñoquis con ragú de tu abuela <small>(esos no los tenemos, pero te entendemos)</small></div>
+<div class="pt fun">tu móvil te conoce mejor que tú</div>
+<div class="pt fun">tienes 47 pestañas abiertas en la cabeza y ninguna se cierra</div>
+</div>
+<p class="perte-end">Si te has reconocido en al menos una, ya eres uno de los nuestros: <strong>un Viajero Itinerante</strong>.</p>
+<a class="btn accent" href="#community">Únete a los Viajeros Itinerantes</a>
+</div></section>
 
 <section id="viaggi"><div class="wrap">
 <div class="row-head"><div><span class="eyebrow">Próximas salidas</span><h2>Encuentra tu viaje</h2></div><div class="row-tools"><span id="dep-count" class="count"></span><button type="button" class="btn ghost small" id="f-reset">Quitar filtros</button></div></div>
@@ -60,7 +79,7 @@
 
 
 <section class="dark" id="la-community"><div class="wrap">
-<span class="eyebrow">La comunidad</span><h2>Antes, durante y después del viaje</h2>
+<span class="eyebrow">La comunidad de los Viajeros Itinerantes</span><h2>Antes, durante y después del viaje</h2>
 <p class="lead" style="max-width:46em">Lo que pasa en un retiro necesita tiempo para echar raíces. Por eso el viaje empieza antes de salir y continúa cuando vuelves.</p>
 <div class="how">
 <div class="how-step"><span>Antes</span><h3>Nos conocemos</h3><p>Una videollamada de grupo con el facilitador, una intención para llevar contigo y un chat para llegar siendo ya un poco grupo.</p></div>
@@ -73,15 +92,40 @@
 <section id="destinazioni"><div class="wrap">
 <span class="eyebrow">Los destinos</span><h2>Adónde vamos</h2>
 <div class="trips">
-<a class="trip t-marocco" href="marocco-es.html"><img class="thumb" src="img/dunes.jpg" alt="Dunas del Sáhara" loading="lazy"><div class="trip-body"><span class="tag">Marruecos · 7 días · desde 2.000 €</span><h3>Desert Way</h3><p>De Marrakech al Sáhara: dunas, campamentos nómadas y cielos sin luz artificial.</p><span class="more">Ver el recorrido →</span></div></a>
-<a class="trip t-nilo" href="nilo-es.html"><img class="thumb" src="img/felucca.jpg" alt="Faluca en el Nilo" loading="lazy"><div class="trip-body"><span class="tag">Egipto · 8 días · desde 2.800 €</span><h3>La Vía del Nilo</h3><p>De Luxor a Asuán en una dahabiya a vela, entre templos antiguos y aldeas nubias.</p><span class="more">Ver el recorrido →</span></div></a>
-<a class="trip t-cappadocia" href="cappadocia-es.html"><img class="thumb" src="img/balloons.jpg" alt="Globos en Capadocia" loading="lazy"><div class="trip-body"><span class="tag">Turquía · 7 días · desde 2.600 €</span><h3>Valles de Piedra</h3><p>Chimeneas de hadas, ciudades subterráneas y amaneceres en globo en el corazón de Anatolia.</p><span class="more">Ver el recorrido →</span></div></a>
+<a class="trip t-marocco" href="marocco-es.html"><img class="thumb" src="img/dunes.jpg" alt="Dunas del Sáhara" loading="lazy"><div class="trip-body"><span class="tag">Marruecos · 7 días · desde 2.000 €</span><span class="lvl"><span class="dots" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></span><span>Intensidad aventura</span></span><h3>Desert Way</h3><p>De Marrakech al Sáhara: dunas, campamentos nómadas y cielos sin luz artificial.</p><span class="more">Ver el recorrido →</span></div></a>
+<a class="trip t-nilo" href="nilo-es.html"><img class="thumb" src="img/felucca.jpg" alt="Faluca en el Nilo" loading="lazy"><div class="trip-body"><span class="tag">Egipto · 8 días · desde 2.800 €</span><span class="lvl"><span class="dots" aria-hidden="true"><i class="on"></i><i></i><i></i><i></i><i></i></span><span>Intensidad suave</span></span><h3>La Vía del Nilo</h3><p>De Luxor a Asuán en una dahabiya a vela, entre templos antiguos y aldeas nubias.</p><span class="more">Ver el recorrido →</span></div></a>
+<a class="trip t-cappadocia" href="cappadocia-es.html"><img class="thumb" src="img/balloons.jpg" alt="Globos en Capadocia" loading="lazy"><div class="trip-body"><span class="tag">Turquía · 7 días · desde 2.600 €</span><span class="lvl"><span class="dots" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i></span><span>Intensidad activa</span></span><h3>Valles de Piedra</h3><p>Chimeneas de hadas, ciudades subterráneas y amaneceres en globo en el corazón de Anatolia.</p><span class="more">Ver el recorrido →</span></div></a>
 </div>
-<div class="soon"><span class="eyebrow">En preparación</span><div class="soon-list"><span>Georgia · Tusheti</span><span>Jordania · Wadi Rum</span><span>Nepal · Himalaya</span><span>¿Tu propuesta? <a href="diventa-facilitatore-es.html#co-crea">Cocrea con nosotros</a></span></div></div>
+<div class="soon"><span class="eyebrow">En preparación</span><div class="soon-list"><span>Georgia · Tusheti</span><span>Jordania · Wadi Rum</span><span>Nepal · Himalaya</span><span>Perú · Andes</span><span>¿Tu propuesta? <a href="diventa-facilitatore-es.html#co-crea">Cocrea con nosotros</a></span></div></div>
+</div></section>
+
+<section id="intensita" style="padding-top:0"><div class="wrap"><div class="intensity">
+<div><span class="eyebrow">¿Qué intensidad tiene?</span><h2>Elige el retiro adecuado para tu cuerpo</h2>
+<p>Cada viaje tiene un nivel de intensidad del 1 al 5: cuánto se camina, cuánta comodidad hay por la noche, qué clima encontrarás. Así sabes antes de salir si te espera un crucero tranquilo o alguna noche sin ducha.</p></div>
+<div class="lvl-list">
+<div class="lvl-row"><span class="dots"><i class="on"></i><i></i><i></i><i></i><i></i></span><div><strong>1 · Suave</strong><span>Poco caminar y mucha comodidad. Vale también para quien camina poco. Ej.: La Vía del Nilo.</span></div></div>
+<div class="lvl-row"><span class="dots"><i class="on"></i><i class="on"></i><i></i><i></i><i></i></span><div><strong>2 · Tranquilo</strong><span>Paseos cortos cada día, siempre con cama y ducha.</span></div></div>
+<div class="lvl-row"><span class="dots"><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i></span><div><strong>3 · Activo</strong><span>Caminatas de 3-5 horas y alojamientos cómodos. Ej.: Valles de Piedra.</span></div></div>
+<div class="lvl-row"><span class="dots"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></span><div><strong>4 · Aventura</strong><span>Arena, dromedarios y algunas noches en campamento sin ducha. Ej.: Desert Way.</span></div></div>
+<div class="lvl-row"><span class="dots"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></span><div><strong>5 · Intenso</strong><span>Trekkings largos o en altura, como los Andes o el Himalaya. En preparación.</span></div></div>
+</div></div></div></section>
+
+<section id="valori"><div class="wrap">
+<span class="eyebrow">Lo que nos mueve</span><h2>Viajar bien, también para quien nos recibe</h2>
+<div class="values">
+<div class="value"><h3>Cultura</h3><p>Entramos en los lugares de puntillas. Rituales, música y cocina los vivimos con quienes los custodian, nunca como un espectáculo.</p></div>
+<div class="value"><h3>Local, siempre que se pueda</h3><p>Guías, cocineros, conductores y alojamientos del lugar. Cada euro gastado en el territorio se queda con quien vive allí.</p></div>
+<div class="value"><h3>Sostenibilidad</h3><p>Grupos pequeños, nada de grandes barcos y el mínimo plástico. Y un camino hacia la certificación B Corp.</p></div>
+</div>
+<div class="impact">
+<div><span class="eyebrow">Nuestro impacto</span><h3>Una parte de cada viaje vuelve a donde hemos estado</h3>
+<p>Un porcentaje de cada reserva va a proyectos de desarrollo en las comunidades que nos acogen: agua potable, baños donde faltan, escuelas. Cada año publicamos adónde ha ido el dinero.</p></div>
+<ul class="impact-list"><li><strong>Agua y saneamiento</strong><span>en las aldeas del recorrido</span></li><li><strong>Escuelas y material</strong><span>con las asociaciones locales</span></li><li><strong>Hacia la B Corp</strong><span>medimos nuestro impacto con estándares independientes</span></li></ul>
+</div>
 </div></section>
 
 <section style="padding-top:0"><div class="wrap"><div class="net-band">
-<div><span class="eyebrow">La red</span><h2>Quién te acompaña</h2><p>Una red de facilitadores seleccionados: profesores de yoga, astrólogos, sound healers y coaches. Los formamos en nuestra manera de viajar y cada uno aporta su propia práctica.</p>
+<div><span class="eyebrow">La red</span><h2>Elegidos por nosotros, confirmados por vosotros</h2><p>Profesores de yoga, astrólogos, sound healers y coaches. Los seleccionamos y formamos nosotros; después, los participantes los valoran tras cada viaje. Solo siguen guiando los facilitadores que la comunidad premia.</p>
 <div class="actions" style="display:flex;gap:12px;flex-wrap:wrap;margin-top:20px"><a class="btn" href="network-es.html">Conoce a los facilitadores</a><a class="btn ghost" href="diventa-facilitatore-es.html">¿Eres facilitador?</a></div></div>
 <div class="net-faces" id="net-faces"></div>
 </div></div></section>
@@ -92,7 +136,7 @@
 </div></div></section>
 
 <section id="community" style="padding-top:0"><div class="wrap"><div class="cta-band">
-<div><h2>Únete a la comunidad</h2><p>Nuevos destinos, nuevas fechas y nuevos facilitadores: quien está en la comunidad se entera primero.</p></div>
+<div><h2>Hazte Viajero Itinerante</h2><p>Nuevos destinos, nuevas fechas, nuevos facilitadores y encuentros presenciales: quien está en la comunidad se entera primero.</p></div>
 <div><a class="btn" href="mailto:hello@innertravels.world?subject=Community">Escríbenos para entrar</a><p class="mail" style="margin-top:16px">hello@innertravels.world</p></div>
 </div></div></section>
 </main>
@@ -103,7 +147,7 @@ document.getElementById('net-faces').innerHTML=RI.facilitators.map(function(f){r
 <footer class="site-footer" id="contatti"><div class="wrap"><div class="foot">
 <div><a class="logo" href="index-es.html" aria-label="Ritiri Itineranti, inicio">RITIR<svg class="fig g1" viewBox="0 0 46 100" aria-hidden="true"><g transform="rotate(5 23 100)"><circle cx="23" cy="18" r="12.5" fill="currentColor"/><rect x="10" y="34" width="26" height="32" rx="6" fill="currentColor"/><path d="M17 58 L9.5 93.5 M29 58 L35 93.5" stroke="currentColor" stroke-width="12.6" stroke-linecap="round" fill="none"/></g></svg><svg class="fig g2" viewBox="0 0 46 100" aria-hidden="true"><g transform="rotate(5 23 100)"><circle cx="23" cy="18" r="12.5" fill="currentColor"/><rect x="10" y="34" width="26" height="32" rx="6" fill="currentColor"/><path d="M17 58 L9.5 93.5 M29 58 L35 93.5" stroke="currentColor" stroke-width="12.6" stroke-linecap="round" fill="none"/></g></svg>TINERANTI</a><p style="margin-top:16px;color:var(--ink-soft);max-width:30em">Viajes transformadores en grupos pequeños, guiados por una red de facilitadores seleccionados.</p></div>
 <div><h4>Viajes</h4><ul><li><a href="marocco-es.html">Desert Way, Marruecos</a></li><li><a href="nilo-es.html">La Vía del Nilo, Egipto</a></li><li><a href="cappadocia-es.html">Valles de Piedra, Turquía</a></li><li><a href="index-es.html#viaggi">Todas las salidas</a></li></ul></div>
-<div><h4>Facilitadores</h4><ul><li><a href="network-es.html">La red</a></li><li><a href="diventa-facilitatore-es.html">Hazte facilitador</a></li><li><a href="area-facilitatori-es.html">Área de facilitadores</a></li><li><a href="mailto:hello@innertravels.world">hello@innertravels.world</a></li></ul></div>
+<div><h4>Facilitadores</h4><ul><li><a href="network-es.html">La red</a></li><li><a href="diventa-facilitatore-es.html">Hazte facilitador</a></li><li><a href="area-facilitatori-es.html">Área de facilitadores</a></li><li><a href="campagne-es.html">Ideas para las campañas</a></li><li><a href="mailto:hello@innertravels.world">hello@innertravels.world</a></li></ul></div>
 </div><p class="copy">© 2026 Ritiri Itineranti · Maqueta de demostración: fechas, perfiles de facilitadores y datos son ejemplos · Fotos de Unsplash</p></div></footer>
 <script>
 (function(){var b=document.querySelector('.menu-btn'),n=document.getElementById('nav');if(!b)return;b.addEventListener('click',function(){var o=n.classList.toggle('open');b.setAttribute('aria-expanded',o)});n.addEventListener('click',function(e){if(e.target.tagName==='A'){n.classList.remove('open');b.setAttribute('aria-expanded',false)}})})();

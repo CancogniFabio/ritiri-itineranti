@@ -1,24 +1,24 @@
 /* Mock-up data: example departures and example facilitator profiles */
 window.RI = {
   destinations: {
-    marocco: { name: "Desert Way", country: "Marruecos", page: "marocco-es.html", img: "img/dunes.jpg", days: "7 días", price: 2000, color: "#B6492B" },
-    nilo: { name: "La Vía del Nilo", country: "Egipto", page: "nilo-es.html", img: "img/felucca.jpg", days: "8 días", price: 2800, color: "#17676A" },
-    cappadocia: { name: "Valles de Piedra", country: "Turquía", page: "cappadocia-es.html", img: "img/balloons.jpg", days: "7 días", price: 2600, color: "#9B3F67" }
+    marocco: { name: "Desert Way", country: "Marruecos", page: "marocco-es.html", img: "img/dunes.jpg", days: "7 días", price: 2000, color: "#B6492B", level: 4, levelName: "Aventura" },
+    nilo: { name: "La Vía del Nilo", country: "Egipto", page: "nilo-es.html", img: "img/felucca.jpg", days: "8 días", price: 2800, color: "#17676A", level: 1, levelName: "Suave" },
+    cappadocia: { name: "Valles de Piedra", country: "Turquía", page: "cappadocia-es.html", img: "img/balloons.jpg", days: "7 días", price: 2600, color: "#9B3F67", level: 3, levelName: "Activo" }
   },
   facilitators: [
-    { id: "fabio-flavia", name: "Fabio y Flavia", role: "Fundadores · breathwork, yoga y Deep Coaching", themes: ["Breathwork", "Yoga", "Meditación"], color: "#23203B", initials: "F&F", base: "Lisboa", founders: true,
+    { id: "fabio-flavia", rating: 4.9, reviews: 64, name: "Fabio y Flavia", role: "Fundadores · breathwork, yoga y Deep Coaching", themes: ["Breathwork", "Yoga", "Meditación"], color: "#23203B", initials: "F&F", base: "Lisboa", founders: true,
       bio: "Diseñan los itinerarios y los temas de cada viaje, seleccionan a los facilitadores y guían algunas salidas cada año." },
-    { id: "giulia", name: "Giulia M.", role: "Astróloga y profesora de meditación", themes: ["Astrología", "Meditación"], color: "#9B3F67", initials: "GM", base: "Bologna",
+    { id: "giulia", rating: 4.9, reviews: 31, name: "Giulia M.", role: "Astróloga y profesora de meditación", themes: ["Astrología", "Meditación"], color: "#9B3F67", initials: "GM", base: "Bologna",
       bio: "Lee el cielo como un mapa interior. En el desierto y en Anatolia trabaja con las estrellas, los ciclos y las intenciones." },
-    { id: "luca", name: "Luca F.", role: "Profesor de yoga y terapeuta somático", themes: ["Yoga", "Trabajo somático"], color: "#B6492B", initials: "LF", base: "Turín",
+    { id: "luca", rating: 4.8, reviews: 22, name: "Luca F.", role: "Profesor de yoga y terapeuta somático", themes: ["Yoga", "Trabajo somático"], color: "#B6492B", initials: "LF", base: "Turín",
       bio: "Une vinyasa lento y escucha del cuerpo. Lleva de viaje prácticas sencillas para seguir en casa." },
-    { id: "sara", name: "Sara C.", role: "Facilitadora de meditación y simbología sagrada", themes: ["Meditación", "Simbología sagrada"], color: "#17676A", initials: "SC", base: "Roma",
+    { id: "sara", rating: 5.0, reviews: 18, name: "Sara C.", role: "Facilitadora de meditación y simbología sagrada", themes: ["Meditación", "Simbología sagrada"], color: "#17676A", initials: "SC", base: "Roma",
       bio: "Estudia los símbolos del antiguo Egipto, de la flor de loto al ojo de Horus, y los traduce en meditaciones guiadas." },
-    { id: "davide", name: "Davide R.", role: "Sound healer y músico", themes: ["Sound healing", "Meditación"], color: "#E9A23B", initials: "DR", base: "Milán",
+    { id: "davide", rating: 4.9, reviews: 27, name: "Davide R.", role: "Sound healer y músico", themes: ["Sound healing", "Meditación"], color: "#E9A23B", initials: "DR", base: "Milán",
       bio: "Cuencos tibetanos, voz y tambores de marco. En el Nilo convierte la cubierta del barco en un espacio de escucha." },
-    { id: "elena", name: "Elena R.", role: "Coach y profesora de yoga", themes: ["Coaching", "Yoga"], color: "#5F8F8B", initials: "ER", base: "Florencia",
+    { id: "elena", rating: 4.8, reviews: 35, name: "Elena R.", role: "Coach y profesora de yoga", themes: ["Coaching", "Yoga"], color: "#5F8F8B", initials: "ER", base: "Florencia",
       bio: "Ayuda a las personas a hacer balance de su vida. Alterna práctica en la esterilla y sesiones de coaching en grupo." },
-    { id: "marco", name: "Marco G.", role: "Guía de caminatas y meditación", themes: ["Meditación", "Camino en silencio"], color: "#6B4A30", initials: "MG", base: "Verona",
+    { id: "marco", rating: 4.7, reviews: 19, name: "Marco G.", role: "Guía de caminatas y meditación", themes: ["Meditación", "Camino en silencio"], color: "#6B4A30", initials: "MG", base: "Verona",
       bio: "Ex guía de montaña, hoy acompaña caminatas en silencio. Cree que los pies piensan mejor que la cabeza." }
   ],
   departures: [
@@ -42,22 +42,26 @@ window.RI = {
   function avatar(f, size) {
     return '<span class="avatar-sm" style="background:' + f.color + ';width:' + size + 'px;height:' + size + 'px;font-size:' + Math.round(size * 0.36) + 'px" aria-hidden="true">' + f.initials + '</span>';
   }
+  function dots(n) { var o = ''; for (var i = 1; i <= 5; i++) o += '<i class="' + (i <= n ? 'on' : '') + '"></i>'; return '<span class="dots" aria-hidden="true">' + o + '</span>'; }
+  function level(ds) { return '<span class="lvl">' + dots(ds.level) + '<span>Intensidad ' + ds.levelName.toLowerCase() + '</span></span>'; }
+  function stars(f) { return '<span class="stars" aria-label="Valutazione ' + f.rating + ' de 5">★ ' + f.rating.toFixed(1) + ' <em>(' + f.reviews + ')</em></span>'; }
   function depCard(d) {
     var ds = D.destinations[d.dest], f = fac(d.fac);
     var few = d.seats <= 4 ? ' few' : '';
     return '<a class="dep-card" href="' + ds.page + '#date" style="--c:' + ds.color + '">' +
       '<div class="dep-img"><img src="' + ds.img + '" alt="' + ds.country + '" loading="lazy"><span class="dep-country">' + ds.country + '</span></div>' +
       '<div class="dep-body"><span class="dep-date">' + d.date + '</span><h3>' + d.title + '</h3>' +
-      '<span class="dep-trip">' + ds.name + ' · ' + ds.days + '</span>' +
-      '<div class="dep-fac">' + avatar(f, 34) + '<div><strong>' + f.name + '</strong><span>' + d.theme + '</span></div></div>' +
+      '<span class="dep-trip">' + ds.name + ' · ' + ds.days + '</span>' + level(ds) +
+      '<div class="dep-fac">' + avatar(f, 34) + '<div><strong>' + f.name + ' ' + stars(f) + '</strong><span>' + d.theme + '</span></div></div>' +
       '<div class="dep-foot"><span class="dep-price">' + eur(ds.price) + '</span><span class="dep-seats' + few + '">' + d.seats + ' plazas de 12</span></div></div></a>';
   }
-  window.RIrender = { fac: fac, eur: eur, avatar: avatar, depCard: depCard };
+  window.RIrender = { fac: fac, eur: eur, avatar: avatar, depCard: depCard, dots: dots, stars: stars };
 
   // ---------- home: search ----------
   var grid = document.getElementById('dep-grid');
   if (grid) {
     var sel = { dest: document.getElementById('f-dest'), month: document.getElementById('f-month'), theme: document.getElementById('f-theme'), fac: document.getElementById('f-fac') };
+    var lv = document.getElementById('f-level'), lvOut = document.getElementById('f-level-out'), LV = ['', 'Suave', 'Tranquilo', 'Activo', 'Aventura', 'Intenso'];
     var themes = {};
     D.departures.forEach(function (d) { themes[d.theme] = 1; });
     Object.keys(D.destinations).forEach(function (k) { sel.dest.insertAdjacentHTML('beforeend', '<option value="' + k + '">' + D.destinations[k].country + '</option>'); });
@@ -69,13 +73,15 @@ window.RI = {
     function run() {
       var list = D.departures.filter(function (d) {
         return (!sel.dest.value || d.dest === sel.dest.value) && (!sel.month.value || d.month == sel.month.value) &&
-          (!sel.theme.value || d.theme === sel.theme.value) && (!sel.fac.value || d.fac === sel.fac.value);
+          (!sel.theme.value || d.theme === sel.theme.value) && (!sel.fac.value || d.fac === sel.fac.value) && D.destinations[d.dest].level <= +lv.value;
       }).sort(function (a, b) { return a.month - b.month; });
       grid.innerHTML = list.length ? list.map(depCard).join('') : '<p class="empty">No hay salidas con estos filtros. Prueba a quitar alguno.</p>';
       count.textContent = list.length + (list.length === 1 ? ' salida' : ' salidas');
     }
     Object.keys(sel).forEach(function (k) { sel[k].addEventListener('change', run); });
-    document.getElementById('f-reset').addEventListener('click', function () { Object.keys(sel).forEach(function (k) { sel[k].value = ''; }); run(); });
+    function lvShow() { lvOut.textContent = 'hasta ' + LV[+lv.value]; }
+    lv.addEventListener('input', function () { lvShow(); run(); }); lvShow();
+    document.getElementById('f-reset').addEventListener('click', function () { Object.keys(sel).forEach(function (k) { sel[k].value = ''; }); lv.value = 5; lvShow(); run(); });
     Array.prototype.forEach.call(document.querySelectorAll('[data-theme-pick]'), function (b) {
       b.addEventListener('click', function () { sel.theme.value = b.getAttribute('data-theme-pick'); run(); document.getElementById('viaggi').scrollIntoView({ behavior: 'smooth' }); });
     });
