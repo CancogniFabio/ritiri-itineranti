@@ -416,3 +416,7 @@ input:focus,select:focus,textarea:focus{outline:3px solid rgba(182,73,43,.35);bo
 .gift-art svg{width:100%;height:auto}
 .gift h3{margin-top:0}
 .posters .poster{aspect-ratio:9/16}
+@media (max-width:1000px){.posters{grid-template-columns:1fr 1fr}}
+@media (max-width:560px){.posters{grid-template-columns:1fr}.posters .poster{aspect-ratio:4/5}.posters .poster.photo{aspect-ratio:4/5}.posters .poster.photo .p-q{font-size:1.9rem}.p-q{font-size:1.9rem}}
+@media (max-width:960px){.stories{grid-template-columns:repeat(2,minmax(0,280px))}}
+@media (max-width:560px){.stories{grid-template-columns:minmax(0,320px);justify-content:center}}
