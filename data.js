@@ -32,6 +32,7 @@ window.RI = {
     { id: "ca-set27", dest: "cappadocia", month: 9, date: "19-25 settembre 2027", fac: "marco", theme: "Cammino in silenzio", title: "Valli in silenzio", seats: 11 },
     { id: "ca-ott27", dest: "cappadocia", month: 10, date: "10-16 ottobre 2027", fac: "giulia", theme: "Astrologia", title: "Il cielo d'Anatolia", seats: 6 }
   ],
+  minPax: 6,
   months: ["", "Gennaio", "Febbraio", "Marzo", "Aprile", "Maggio", "Giugno", "Luglio", "Agosto", "Settembre", "Ottobre", "Novembre", "Dicembre"]
 };
 
@@ -45,6 +46,11 @@ window.RI = {
   function dots(n) { var o = ''; for (var i = 1; i <= 5; i++) o += '<i class="' + (i <= n ? 'on' : '') + '"></i>'; return '<span class="dots" aria-hidden="true">' + o + '</span>'; }
   function level(ds) { return '<span class="lvl">' + dots(ds.level) + '<span>Intensità ' + ds.levelName.toLowerCase() + '</span></span>'; }
   function stars(f) { return '<span class="stars" aria-label="Valutazione ' + f.rating + ' su 5">★ ' + f.rating.toFixed(1) + ' <em>(' + f.reviews + ')</em></span>'; }
+  function status(d) {
+    var booked = 12 - d.seats, min = D.minPax, ok = booked >= min, miss = min - booked;
+    var label = ok ? 'Partenza confermata' : (miss === 1 ? 'Manca 1 persona per partire' : 'Mancano ' + miss + ' persone per partire');
+    return '<div class="go ' + (ok ? 'ok' : 'wait') + '"><div class="go-bar"><span style="width:' + (booked / 12 * 100).toFixed(0) + '%"></span><i style="left:' + (min / 12 * 100).toFixed(0) + '%"></i></div><span class="go-label">' + (ok ? '✓ ' : '') + label + '</span></div>';
+  }
   function depCard(d) {
     var ds = D.destinations[d.dest], f = fac(d.fac);
     var few = d.seats <= 4 ? ' few' : '';
@@ -53,7 +59,7 @@ window.RI = {
       '<div class="dep-body"><span class="dep-date">' + d.date + '</span><h3>' + d.title + '</h3>' +
       '<span class="dep-trip">' + ds.name + ' · ' + ds.days + '</span>' + level(ds) +
       '<div class="dep-fac">' + avatar(f, 34) + '<div><strong>' + f.name + ' ' + stars(f) + '</strong><span>' + d.theme + '</span></div></div>' +
-      '<div class="dep-foot"><span class="dep-price">' + eur(ds.price) + '</span><span class="dep-seats' + few + '">' + d.seats + ' posti su 12</span></div></div></a>';
+      status(d) + '<div class="dep-foot"><span class="dep-price">' + eur(ds.price) + '</span><span class="dep-seats' + few + '">' + 'Restano ' + d.seats + ' posti</span></div></div></a>';
   }
   window.RIrender = { fac: fac, eur: eur, avatar: avatar, depCard: depCard, dots: dots, stars: stars };
 
@@ -94,7 +100,7 @@ window.RI = {
     var dest = tripDeps.getAttribute('data-dest'), ds = D.destinations[dest];
     tripDeps.innerHTML = D.departures.filter(function (d) { return d.dest === dest; }).map(function (d) {
       var f = fac(d.fac);
-      return '<article class="dep-row"><div class="dep-row-date"><strong>' + d.date + '</strong><span class="dep-seats' + (d.seats <= 4 ? ' few' : '') + '">' + d.seats + ' posti su 12</span></div>' +
+      return '<article class="dep-row"><div class="dep-row-date"><strong>' + d.date + '</strong><span class="dep-seats' + (d.seats <= 4 ? ' few' : '') + '">' + 'Restano ' + d.seats + ' posti</span></div>' +
         '<div class="dep-row-fac">' + avatar(f, 52) + '<div><span class="dep-theme">' + d.theme + '</span><h3>' + d.title + '</h3><span>con ' + f.name + ' · ' + f.role + '</span></div></div>' +
         '<div class="dep-row-cta"><span class="dep-price">' + eur(ds.price) + '</span><button class="btn accent" type="button" data-book="' + d.id + '">Richiedi un posto</button></div></article>';
     }).join('');
