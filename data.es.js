@@ -7,12 +7,12 @@ window.RI = {
   },
   facilitators: [
     { id: "fabio-flavia", rating: 4.9, reviews: 64, name: "Fabio y Flavia", role: "Fundadores · breathwork, yoga y Deep Coaching", themes: ["Breathwork", "Yoga", "Meditación"], color: "#23203B", initials: "F&F", base: "Lisboa", founders: true,
-      bio: "Diseñan los itinerarios y los temas de cada viaje, seleccionan a los facilitadores y guían algunas salidas cada año." },
+      bio: "Diseñan los itinerarios y los temas de cada viaje, eligen a los profesores y guían algunas salidas cada año." },
     { id: "giulia", rating: 4.9, reviews: 31, name: "Giulia M.", role: "Astróloga y profesora de meditación", themes: ["Astrología", "Meditación"], color: "#9B3F67", initials: "GM", base: "Bologna",
       bio: "Lee el cielo como un mapa interior. En el desierto y en Anatolia trabaja con las estrellas, los ciclos y las intenciones." },
     { id: "luca", rating: 4.8, reviews: 22, name: "Luca F.", role: "Profesor de yoga y terapeuta somático", themes: ["Yoga", "Trabajo somático"], color: "#B6492B", initials: "LF", base: "Turín",
       bio: "Une vinyasa lento y escucha del cuerpo. Lleva de viaje prácticas sencillas para seguir en casa." },
-    { id: "sara", rating: 5.0, reviews: 18, name: "Sara C.", role: "Facilitadora de meditación y simbología sagrada", themes: ["Meditación", "Simbología sagrada"], color: "#17676A", initials: "SC", base: "Roma",
+    { id: "sara", rating: 5.0, reviews: 18, name: "Sara C.", role: "Profesora de meditación y simbología sagrada", themes: ["Meditación", "Simbología sagrada"], color: "#17676A", initials: "SC", base: "Roma",
       bio: "Estudia los símbolos del antiguo Egipto, de la flor de loto al ojo de Horus, y los traduce en meditaciones guiadas." },
     { id: "davide", rating: 4.9, reviews: 27, name: "Davide R.", role: "Sound healer y músico", themes: ["Sound healing", "Meditación"], color: "#E9A23B", initials: "DR", base: "Milán",
       bio: "Cuencos tibetanos, voz y tambores de marco. En el Nilo convierte la cubierta del barco en un espacio de escucha." },
@@ -44,7 +44,7 @@ window.RI = {
     return '<span class="avatar-sm" style="background:' + f.color + ';width:' + size + 'px;height:' + size + 'px;font-size:' + Math.round(size * 0.36) + 'px" aria-hidden="true">' + f.initials + '</span>';
   }
   function dots(n) { var o = ''; for (var i = 1; i <= 5; i++) o += '<i class="' + (i <= n ? 'on' : '') + '"></i>'; return '<span class="dots" aria-hidden="true">' + o + '</span>'; }
-  function level(ds) { return '<span class="lvl">' + dots(ds.level) + '<span>Nivel ' + ds.level + ' · ' + ds.levelName + '</span></span>'; }
+  function level(ds) { return '<span class="lvl">' + dots(ds.level) + '<span>Esfuerzo físico ' + ds.level + ' de 5</span></span>'; }
   function stars(f) { return '<span class="stars" aria-label="Valutazione ' + f.rating + ' de 5">★ ' + f.rating.toFixed(1) + ' <em>(' + f.reviews + ')</em></span>'; }
   function status(d) {
     var booked = 12 - d.seats, min = D.minPax, ok = booked >= min, miss = min - booked;
@@ -56,41 +56,56 @@ window.RI = {
     var few = d.seats <= 4 ? ' few' : '';
     return '<a class="dep-card" href="' + ds.page + '#date" style="--c:' + ds.color + '">' +
       '<div class="dep-img"><img src="' + ds.img + '" alt="' + ds.country + '" loading="lazy"><span class="dep-country">' + ds.country + '</span></div>' +
-      '<div class="dep-body"><span class="dep-date">' + d.date + '</span><h3>' + d.title + '</h3>' +
-      '<span class="dep-trip">' + ds.name + ' · ' + ds.days + '</span>' + level(ds) +
-      '<div class="dep-fac">' + avatar(f, 34) + '<div><strong>' + f.name + ' ' + stars(f) + '</strong><span>' + d.theme + '</span></div></div>' +
+      '<div class="dep-body"><span class="dep-date">' + d.date + '</span><h3>' + ds.country + ' · ' + ds.name + '</h3>' +
+      '<span class="dep-trip">' + ds.days + ' · tema: ' + d.theme + '</span>' + level(ds) +
+      '<div class="dep-fac">' + avatar(f, 34) + '<div><strong>con ' + f.name + ' ' + stars(f) + '</strong><span>' + f.role + '</span></div></div>' +
       status(d) + '<div class="dep-foot"><span class="dep-price">' + eur(ds.price) + '</span><span class="dep-seats' + few + '">' + 'Quedan ' + d.seats + ' plazas</span></div></div></a>';
   }
   window.RIrender = { fac: fac, eur: eur, avatar: avatar, depCard: depCard, dots: dots, stars: stars };
 
-  // ---------- home: search ----------
+  // ---------- home: search (linked filters) ----------
   var grid = document.getElementById('dep-grid');
   if (grid) {
     var sel = { dest: document.getElementById('f-dest'), month: document.getElementById('f-month'), theme: document.getElementById('f-theme'), fac: document.getElementById('f-fac') };
-    var lv = document.getElementById('f-level'), lvOut = document.getElementById('f-level-out'), LV = ['', 'Suave', 'Tranquilo', 'Activo', 'Aventura', 'Intenso'];
-    var themes = {};
-    D.departures.forEach(function (d) { themes[d.theme] = 1; });
-    Object.keys(D.destinations).forEach(function (k) { sel.dest.insertAdjacentHTML('beforeend', '<option value="' + k + '">' + D.destinations[k].country + '</option>'); });
-    var months = {}; D.departures.forEach(function (d) { months[d.month] = 1; });
-    Object.keys(months).sort(function (a, b) { return a - b; }).forEach(function (m) { sel.month.insertAdjacentHTML('beforeend', '<option value="' + m + '">' + D.months[m] + '</option>'); });
-    Object.keys(themes).sort().forEach(function (t) { sel.theme.insertAdjacentHTML('beforeend', '<option>' + t + '</option>'); });
-    D.facilitators.forEach(function (f) { sel.fac.insertAdjacentHTML('beforeend', '<option value="' + f.id + '">' + f.name + '</option>'); });
-    var count = document.getElementById('dep-count');
+    var ALL = { dest: 'Todos', month: 'Cualquiera', theme: 'Todos', fac: 'Todos' };
+    var EMPTY = { dest: 'sin salidas', month: 'sin salidas', theme: 'sin salidas', fac: 'sin viajes' };
+    var hint = document.getElementById('search-hint'), count = document.getElementById('dep-count');
+    function key(d, k) { return k === 'month' ? String(d.month) : d[k]; }
+    function label(k, v) {
+      if (k === 'dest') return D.destinations[v].country;
+      if (k === 'month') return D.months[+v];
+      if (k === 'fac') return fac(v).name;
+      return v;
+    }
+    var options = { dest: Object.keys(D.destinations), month: [], theme: [], fac: D.facilitators.map(function (f) { return f.id; }) };
+    var mm = {}, tt = {};
+    D.departures.forEach(function (d) { mm[d.month] = 1; tt[d.theme] = 1; });
+    options.month = Object.keys(mm).sort(function (a, b) { return a - b; });
+    options.theme = Object.keys(tt).sort();
+    function matches(d, skip) {
+      return Object.keys(sel).every(function (k) { return k === skip || !sel[k].value || key(d, k) === sel[k].value; });
+    }
+    function rebuild() {
+      Object.keys(sel).forEach(function (k) {
+        var cur = sel[k].value;
+        var html = '<option value="">' + ALL[k] + '</option>';
+        options[k].forEach(function (v) {
+          var n = D.departures.filter(function (d) { return matches(d, k) && key(d, k) === v; }).length;
+          html += '<option value="' + v + '"' + (n ? '' : ' disabled') + (v === cur ? ' selected' : '') + '>' + label(k, v) + (n ? ' (' + n + ')' : ' · ' + EMPTY[k]) + '</option>';
+        });
+        sel[k].innerHTML = html;
+      });
+    }
     function run() {
-      var list = D.departures.filter(function (d) {
-        return (!sel.dest.value || d.dest === sel.dest.value) && (!sel.month.value || d.month == sel.month.value) &&
-          (!sel.theme.value || d.theme === sel.theme.value) && (!sel.fac.value || d.fac === sel.fac.value) && D.destinations[d.dest].level <= +lv.value;
-      }).sort(function (a, b) { return a.month - b.month; });
+      rebuild();
+      var list = D.departures.filter(function (d) { return matches(d, null); }).sort(function (a, b) { return a.month - b.month; });
       grid.innerHTML = list.length ? list.map(depCard).join('') : '<p class="empty">No hay salidas con estos filtros. Prueba a quitar alguno.</p>';
       count.textContent = list.length + (list.length === 1 ? ' salida' : ' salidas');
+      var active = Object.keys(sel).some(function (k) { return sel[k].value; });
+      if (hint) hint.textContent = active ? (list.length ? (list.length === 1 ? 'Encontrada 1 salida. ' : 'Encontradas ' + list.length + ' salidas. ') + 'Las opciones en gris no tienen fechas con estos filtros.' : 'No hay salidas con estos filtros: prueba otro mes o quita alguno.') : '';
     }
     Object.keys(sel).forEach(function (k) { sel[k].addEventListener('change', run); });
-    function lvShow() { lvOut.textContent = 'hasta ' + lv.value + ' · ' + LV[+lv.value]; }
-    lv.addEventListener('input', function () { lvShow(); run(); }); lvShow();
-    document.getElementById('f-reset').addEventListener('click', function () { Object.keys(sel).forEach(function (k) { sel[k].value = ''; }); lv.value = 5; lvShow(); run(); });
-    Array.prototype.forEach.call(document.querySelectorAll('[data-theme-pick]'), function (b) {
-      b.addEventListener('click', function () { sel.theme.value = b.getAttribute('data-theme-pick'); run(); document.getElementById('viaggi').scrollIntoView({ behavior: 'smooth' }); });
-    });
+    document.getElementById('f-reset').addEventListener('click', function () { Object.keys(sel).forEach(function (k) { sel[k].value = ''; }); run(); });
     run();
   }
 
@@ -98,11 +113,13 @@ window.RI = {
   var tripDeps = document.getElementById('trip-deps');
   if (tripDeps) {
     var dest = tripDeps.getAttribute('data-dest'), ds = D.destinations[dest];
-    tripDeps.innerHTML = D.departures.filter(function (d) { return d.dest === dest; }).map(function (d) {
+    tripDeps.innerHTML = D.departures.filter(function (d) { return d.dest === dest; }).sort(function (a, b) { return a.month - b.month; }).map(function (d) {
       var f = fac(d.fac);
-      return '<article class="dep-row"><div class="dep-row-date"><strong>' + d.date + '</strong><span class="dep-seats' + (d.seats <= 4 ? ' few' : '') + '">' + 'Quedan ' + d.seats + ' plazas</span></div>' +
-        '<div class="dep-row-fac">' + avatar(f, 52) + '<div><span class="dep-theme">' + d.theme + '</span><h3>' + d.title + '</h3><span>con ' + f.name + ' · ' + f.role + '</span></div></div>' +
-        '<div class="dep-row-cta"><span class="dep-price">' + eur(ds.price) + '</span><button class="btn accent" type="button" data-book="' + d.id + '">Solicita una plaza</button></div></article>';
+      return '<article class="dep-tile"><span class="dep-date">' + d.date + '</span>' +
+        '<div class="dep-fac">' + avatar(f, 48) + '<div><strong>con ' + f.name + '</strong><span>' + f.role + '</span></div></div>' +
+        '<span class="dep-theme">Tema: ' + d.theme + '</span>' + status(d) +
+        '<div class="dep-foot"><span class="dep-price">' + eur(ds.price) + '</span><span class="dep-seats' + (d.seats <= 4 ? ' few' : '') + '">Quedan ' + d.seats + ' plazas</span></div>' +
+        '<button class="btn accent" type="button" data-book="' + d.id + '">Solicita una plaza</button></article>';
     }).join('');
   }
 
@@ -114,7 +131,7 @@ window.RI = {
       var b = e.target.closest('[data-book]');
       if (b) {
         var d = D.departures.filter(function (x) { return x.id === b.getAttribute('data-book'); })[0];
-        title.textContent = D.destinations[d.dest].name + ' · ' + d.date;
+        title.textContent = D.destinations[d.dest].country + ' · ' + D.destinations[d.dest].name + ' · ' + d.date;
         form.hidden = false; done.hidden = true; modal.hidden = false; modal.querySelector('input').focus();
       }
       if (e.target.closest('[data-close]') || e.target === modal) modal.hidden = true;
