@@ -520,3 +520,19 @@ input:focus,select:focus,textarea:focus{outline:3px solid rgba(182,73,43,.35);bo
 }
 .avatar-sm{flex:0 0 auto}
 .avatar-sm{display:inline-grid!important;place-items:center;border-radius:50%;overflow:hidden;text-align:center;line-height:1}.dep-tile .dep-price{font-family:var(--display);font-size:1.3rem}
+/* idee */
+.idea-hero{display:grid;grid-template-columns:1.3fr 1fr;gap:28px;background:var(--paper);border:1px solid var(--line);border-radius:28px;padding:36px;align-items:start}
+@media (max-width:860px){.idea-hero{grid-template-columns:1fr;padding:24px}}
+.idea-points{display:grid;gap:8px;padding-left:1.1em;margin:16px 0 0}
+.weekend-plan{background:var(--ink);color:var(--sand);border-radius:22px;padding:24px;display:grid;gap:14px}
+.weekend-plan div{border-top:1px solid #3d3960;padding-top:12px;color:#D9D2C6}
+.weekend-plan span{display:block;font-weight:800;color:var(--saffron);margin-bottom:2px}
+.seasons{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:16px}
+@media (max-width:860px){.seasons{grid-template-columns:1fr 1fr}}
+.seasons div{background:var(--paper);border:1px solid var(--line);border-radius:18px;padding:18px}
+.seasons span{display:block;font-size:.8rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--terra)}
+.seasons strong{display:block;font-size:1.1rem;margin:4px 0}
+.seasons p{margin:0;color:var(--ink-soft);font-size:.92rem}
+.collab{background:#E3EEEA;border-radius:28px;padding:36px}
+@media (max-width:760px){.collab{padding:24px}}
+.idea-list{display:grid;gap:10px;padding-left:1.1em;margin-top:16px}
