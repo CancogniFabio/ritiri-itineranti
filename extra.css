@@ -560,3 +560,11 @@ input:focus,select:focus,textarea:focus{outline:3px solid rgba(182,73,43,.35);bo
 .quiz-teaser{display:flex;gap:24px;align-items:center;justify-content:space-between;background:var(--ink);color:var(--sand);border-radius:28px;padding:32px}
 .quiz-teaser h2{color:var(--sand)}.quiz-teaser p{color:#D9D2C6;margin-bottom:0}
 @media (max-width:760px){.quiz-teaser{flex-direction:column;align-items:flex-start;padding:24px}}
+.q-email h2{margin:8px 0 10px}
+.q-form{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:16px}
+.q-form label{display:flex;flex-direction:column;gap:6px;font-weight:700;font-size:.9rem}
+.q-form input[type=text],.q-form input[type=email]{padding:12px 14px;border-radius:12px;border:1px solid var(--line);font:inherit;background:#fff}
+.q-form label.check{grid-column:1/-1;flex-direction:row;align-items:flex-start;gap:10px;font-weight:500}
+.q-form .btn{grid-column:1/-1;justify-self:start}
+@media (max-width:560px){.q-form{grid-template-columns:1fr}}
+.q-skip{margin-top:14px;background:none;border:0;padding:0;font:inherit;font-size:.9rem;color:var(--ink-soft);text-decoration:underline;cursor:pointer}

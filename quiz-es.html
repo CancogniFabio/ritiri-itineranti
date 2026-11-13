@@ -7,8 +7,8 @@
 <title>¿Qué viajero itinerante eres? · Ritiri Itineranti</title>
 <meta name="description" content="Seis preguntas para descubrir qué viajero eres y qué retiro va contigo.">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Titan+One&family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Figtree:wght@400;600;700&display=swap">
-<link rel="stylesheet" href="style.css?v=1794561123">
-<link rel="stylesheet" href="extra.css?v=1794561123">
+<link rel="stylesheet" href="style.css?v=1794561599">
+<link rel="stylesheet" href="extra.css?v=1794561599">
 </head>
 <body class="">
 <header class="site-header"><div class="wrap"><a class="logo" href="index-es.html" aria-label="Ritiri Itineranti, inicio">RITIR<svg class="fig g1" viewBox="0 0 46 100" aria-hidden="true"><g transform="rotate(5 23 100)"><circle cx="23" cy="18" r="12.5" fill="currentColor"/><rect x="10" y="34" width="26" height="32" rx="6" fill="currentColor"/><path d="M17 58 L9.5 93.5 M29 58 L35 93.5" stroke="currentColor" stroke-width="12.6" stroke-linecap="round" fill="none"/></g></svg><svg class="fig g2" viewBox="0 0 46 100" aria-hidden="true"><g transform="rotate(5 23 100)"><circle cx="23" cy="18" r="12.5" fill="currentColor"/><rect x="10" y="34" width="26" height="32" rx="6" fill="currentColor"/><path d="M17 58 L9.5 93.5 M29 58 L35 93.5" stroke="currentColor" stroke-width="12.6" stroke-linecap="round" fill="none"/></g></svg>TINERANTI</a>
@@ -24,9 +24,19 @@
 <section style="padding-top:0"><div class="wrap"><div class="quiz" id="quiz">
 <div class="q-bar"><i id="q-progress"></i></div>
 <div class="q-step" data-step="0"><span class="q-count">Pregunta 1 de 6</span><h2>Es viernes por la noche. Tú estás...</h2><div class="q-opts"><button type="button" class="q-opt" data-v="E">ya con la mochila lista, destino sorpresa</button><button type="button" class="q-opt" data-v="C">en el sofá con una infusión y un libro</button><button type="button" class="q-opt" data-v="R">cenando con gente que acabas de conocer</button><button type="button" class="q-opt" data-v="P">todavía contestando emails (socorro)</button></div></div><div class="q-step" data-step="1" hidden><span class="q-count">Pregunta 2 de 6</span><h2>¿Qué es lo que más echas de menos ahora?</h2><div class="q-opts"><button type="button" class="q-opt" data-v="E">un poco de aventura de verdad</button><button type="button" class="q-opt" data-v="C">silencio, y dormir ocho horas</button><button type="button" class="q-opt" data-v="R">entender hacia dónde voy</button><button type="button" class="q-opt" data-v="P">tiempo para mí, signifique lo que signifique</button></div></div><div class="q-step" data-step="2" hidden><span class="q-count">Pregunta 3 de 6</span><h2>Una noche en tienda, sin ducha:</h2><div class="q-opts"><button type="button" class="q-opt" data-v="E">por fin</button><button type="button" class="q-opt" data-v="C">solo con un colchón blandito</button><button type="button" class="q-opt" data-v="R">si el cielo está lleno de estrellas, me apunto</button><button type="button" class="q-opt" data-v="P">lo hablamos, quizá más adelante</button></div></div><div class="q-step" data-step="3" hidden><span class="q-count">Pregunta 4 de 6</span><h2>De viaje nunca olvidas...</h2><div class="q-opts"><button type="button" class="q-opt" data-v="E">las botas de trekking</button><button type="button" class="q-opt" data-v="C">el diario</button><button type="button" class="q-opt" data-v="R">la cámara y mil preguntas</button><button type="button" class="q-opt" data-v="P">el cargador. Y la ansiedad</button></div></div><div class="q-step" data-step="4" hidden><span class="q-count">Pregunta 5 de 6</span><h2>Tu relación con la meditación:</h2><div class="q-opts"><button type="button" class="q-opt" data-v="E">medito mejor caminando</button><button type="button" class="q-opt" data-v="C">la practico y me sienta bien</button><button type="button" class="q-opt" data-v="R">me da curiosidad, quiero entenderla mejor</button><button type="button" class="q-opt" data-v="P">me descargué la app. Una vez</button></div></div><div class="q-step" data-step="5" hidden><span class="q-count">Pregunta 6 de 6</span><h2>Del viaje querrías volver con...</h2><div class="q-opts"><button type="button" class="q-opt" data-v="E">una historia para contar durante años</button><button type="button" class="q-opt" data-v="C">la cabeza ligera</button><button type="button" class="q-opt" data-v="R">una respuesta, o al menos una pregunta mejor</button><button type="button" class="q-opt" data-v="P">las ganas de volver a salir enseguida</button></div></div>
+<div class="q-email" hidden><span class="q-count">Último paso</span><h2>¡Tu perfil está listo!</h2>
+<p>Déjanos tu nombre y email: te enviamos tu perfil de Viajero Itinerante y algunos consejos para el viaje adecuado para ti.</p>
+<form class="q-form" id="q-form">
+<label>Nombre<input type="text" required autocomplete="given-name"></label>
+<label>Email<input type="email" required autocomplete="email"></label>
+<label class="check"><input type="checkbox" required> Acepto la política de privacidad y quiero recibir las novedades de los Viajeros Itinerantes</label>
+<button class="btn accent" type="submit">Descubre quién eres</button>
+</form>
+<button type="button" class="q-skip">Prefiero ver el resultado sin email</button>
+</div>
 <div class="q-result" data-r="E" hidden><div class="q-card"><img src="img/dunes.jpg" alt="" loading="lazy"><div class="q-card-body"><span class="eyebrow">Eres...</span><h2>El Explorador</h2><p>Necesitas espacio, cansancio del bueno y cielos enormes. El silencio lo encuentras caminando, y las prácticas te llegan mejor después de un día en las dunas.</p><div class="q-trip"><span>Tu viaje</span><strong>Marruecos · Desert Way</strong><em>Esfuerzo físico 4 de 5</em></div><div class="q-actions"><a class="btn accent" href="marocco-es.html">Descubre el viaje</a><button type="button" class="btn ghost q-again">Repite el quiz</button></div></div></div></div><div class="q-result" data-r="C" hidden><div class="q-card"><img src="img/felucca.jpg" alt="" loading="lazy"><div class="q-card-body"><span class="eyebrow">Eres...</span><h2>El Contemplativo</h2><p>Te recargas bajando el ritmo. Necesitas un ritmo lento, comodidad por la noche y mucho tiempo para escucharte, mientras el paisaje pasa solo.</p><div class="q-trip"><span>Tu viaje</span><strong>Egipto · La Vía del Nilo</strong><em>Esfuerzo físico 1 de 5</em></div><div class="q-actions"><a class="btn accent" href="nilo-es.html">Descubre el viaje</a><button type="button" class="btn ghost q-again">Repite el quiz</button></div></div></div></div><div class="q-result" data-r="R" hidden><div class="q-card"><img src="img/balloons.jpg" alt="" loading="lazy"><div class="q-card-body"><span class="eyebrow">Eres...</span><h2>El Buscador</h2><p>Tienes curiosidad por todo, fuera y dentro de ti. Te gustan las historias de los lugares, la gente que vive allí y las preguntas que se quedan después.</p><div class="q-trip"><span>Tu viaje</span><strong>Turquía · Valles de Piedra</strong><em>Esfuerzo físico 3 de 5</em></div><div class="q-actions"><a class="btn accent" href="cappadocia-es.html">Descubre el viaje</a><button type="button" class="btn ghost q-again">Repite el quiz</button></div></div></div></div><div class="q-result" data-r="P" hidden><div class="q-card"><img src="img/group.jpg" alt="" loading="lazy"><div class="q-card-body"><span class="eyebrow">Eres...</span><h2>El Primer Paso</h2><p>Llevas años queriendo tomarte un tiempo, pero una semana lejos te parece mucho. Perfecto: se puede empezar cerca de casa, con un fin de semana.</p><div class="q-trip"><span>Tu viaje</span><strong>Fines de semana itinerantes</strong><em>Dos días en Italia, con la comunidad</em></div><div class="q-actions"><a class="btn accent" href="idee-es.html">Descubre el viaje</a><button type="button" class="btn ghost q-again">Repite el quiz</button></div></div></div></div>
 </div>
-<p class="note" style="margin-top:18px">Prototipo del quiz para la página de Ideas. En la web real, al final pediríamos el email para enviar el resultado y consejos de viaje.</p>
+<p class="note" style="margin-top:18px">Prototipo: en este mock-up el email no se envía. En la web real iría a la newsletter, con el perfil como etiqueta.</p>
 </div></section>
 </main>
 <script>
@@ -37,11 +47,17 @@
     score[b.getAttribute('data-v')]++; cur++;
     if(cur<steps.length){show(cur);return;}
     steps.forEach(function(s){s.hidden=true}); bar.style.width='100%';
+    document.querySelector('.q-email').hidden=false;
+  })});
+  function reveal(){
+    document.querySelector('.q-email').hidden=true;
     var best='P';['E','R','C','P'].forEach(function(k){if(score[k]>score[best])best=k;});
     var r=document.querySelector('.q-result[data-r="'+best+'"]'); r.hidden=false; r.scrollIntoView({behavior:'smooth',block:'start'});
-  })});
+  }
+  document.getElementById('q-form').addEventListener('submit',function(e){e.preventDefault();reveal();});
+  document.querySelector('.q-skip').addEventListener('click',reveal);
   document.querySelectorAll('.q-again').forEach(function(b){b.addEventListener('click',function(){
-    score={E:0,C:0,R:0,P:0};cur=0;document.querySelectorAll('.q-result').forEach(function(r){r.hidden=true});show(0);
+    score={E:0,C:0,R:0,P:0};cur=0;document.querySelectorAll('.q-result').forEach(function(r){r.hidden=true});document.querySelector('.q-email').hidden=true;show(0);
     document.getElementById('quiz').scrollIntoView({behavior:'smooth'});
   })});
   show(0);
