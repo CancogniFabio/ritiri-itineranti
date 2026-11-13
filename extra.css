@@ -568,3 +568,32 @@ input:focus,select:focus,textarea:focus{outline:3px solid rgba(182,73,43,.35);bo
 .q-form .btn{grid-column:1/-1;justify-self:start}
 @media (max-width:560px){.q-form{grid-template-columns:1fr}}
 .q-skip{margin-top:14px;background:none;border:0;padding:0;font:inherit;font-size:.9rem;color:var(--ink-soft);text-decoration:underline;cursor:pointer}
+/* ---- leggibilità su telefono (nov 2026) ---- */
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+.home-hero::after{background:linear-gradient(to top,rgba(20,18,36,.92) 0%,rgba(20,18,36,.7) 40%,rgba(20,18,36,.35) 75%,rgba(20,18,36,.2) 100%),linear-gradient(to right,rgba(20,18,36,.55) 0%,rgba(20,18,36,0) 65%)}
+.home-hero h1,.home-hero .lead,.home-hero .eyebrow{text-shadow:0 2px 18px rgba(0,0,0,.45)}
+.home-hero .lead{max-width:34em;font-size:clamp(1.1rem,1.6vw,1.3rem)}
+.photo-hero .wrap{overflow-wrap:break-word}
+.p-q,.p-a,.p-b{overflow-wrap:break-word;hyphens:auto}
+@media (max-width:760px){
+  .poster:not(.bb){aspect-ratio:auto;min-height:440px;display:flex}
+  .poster:not(.bb) .poster-in{height:auto;min-height:100%;flex:1}
+  .poster.story{min-height:500px}
+  .p-q{font-size:1.65rem}
+  .p-a,.p-b{font-size:1rem}
+  .poster.bb{aspect-ratio:auto;min-height:260px;display:flex}
+  .poster.bb .poster-in{height:auto;flex:1}
+  .bb .p-q{font-size:1.7rem}.bb .p-b{font-size:1.35rem}
+  .perte-grid{gap:10px;margin:20px 0}
+  .pt{font-size:1.02rem;padding:14px 16px 14px 46px;border-radius:16px}
+  .pt::before{left:18px;top:14px}
+  .how.scroll-row{margin-top:24px}
+  .how.scroll-row .how-step{padding:22px}
+  .home-hero .wrap{padding-top:100px;padding-bottom:44px}
+}
+@media (max-width:760px){
+  .home-hero{min-height:auto}
+  .mani-grid.scroll-row>div{background:var(--paper);border:1px solid var(--line);border-radius:20px;padding:20px}
+  .mani-grid.scroll-row{margin-top:20px}
+}
+.search-hint:empty{display:none}

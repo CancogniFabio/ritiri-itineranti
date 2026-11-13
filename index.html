@@ -7,8 +7,8 @@
 <title>Ritiri Itineranti · Viaggi e ritiri in piccoli gruppi</title>
 <meta name="description" content="Una settimana in piccolo gruppo in Marocco, Egitto e Turchia: di giorno si esplora, la mattina e la sera ci si ferma ad ascoltarsi.">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Titan+One&family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Figtree:wght@400;600;700&display=swap">
-<link rel="stylesheet" href="style.css?v=1794563331">
-<link rel="stylesheet" href="extra.css?v=1794563331">
+<link rel="stylesheet" href="style.css?v=1794606016">
+<link rel="stylesheet" href="extra.css?v=1794606016">
 </head>
 <body class="">
 <header class="site-header"><div class="wrap"><a class="logo" href="index.html" aria-label="Ritiri Itineranti, home">RITIR<svg class="fig g1" viewBox="0 0 46 100" aria-hidden="true"><g transform="rotate(5 23 100)"><circle cx="23" cy="18" r="12.5" fill="currentColor"/><rect x="10" y="34" width="26" height="32" rx="6" fill="currentColor"/><path d="M17 58 L9.5 93.5 M29 58 L35 93.5" stroke="currentColor" stroke-width="12.6" stroke-linecap="round" fill="none"/></g></svg><svg class="fig g2" viewBox="0 0 46 100" aria-hidden="true"><g transform="rotate(5 23 100)"><circle cx="23" cy="18" r="12.5" fill="currentColor"/><rect x="10" y="34" width="26" height="32" rx="6" fill="currentColor"/><path d="M17 58 L9.5 93.5 M29 58 L35 93.5" stroke="currentColor" stroke-width="12.6" stroke-linecap="round" fill="none"/></g></svg>TINERANTI</a>
@@ -18,9 +18,9 @@
 </div></header>
 <main>
 <section class="photo-hero home-hero"><img class="bg" src="img/silhouette.jpg" alt="Carovana di dromedari al tramonto nel Sahara"><div class="wrap">
-<span class="eyebrow">La community più cool d'Italia per chi viaggia fuori e dentro</span>
+<span class="eyebrow">La community più cool d'Italia per chi viaggia per ritrovarsi</span>
 <h1>Si parte fuori,<br>si arriva dentro.</h1>
-<p class="lead">Unisciti ai Viaggiatori Itineranti per una settimana nel deserto, sul Nilo o tra le valli della Cappadocia, in un gruppo che non supera mai le dodici persone. Durante il giorno esploriamo posti nuovi, mentre la mattina presto e la sera ci fermiamo per respirare, meditare e, ve lo garantiamo, ridere parecchio.</p>
+<p class="lead">Una settimana nel deserto, sul Nilo o in Cappadocia, in un piccolo gruppo che parte da sconosciuti e torna da amici.</p>
 <form class="search" id="search" onsubmit="return false" aria-label="Cerca un viaggio">
 <label><span>Destinazione</span><select id="f-dest"><option value="">Tutte</option></select></label>
 <label><span>Mese</span><select id="f-month"><option value="">Qualsiasi</option></select></label>
@@ -34,7 +34,7 @@
 <section class="manifesto"><div class="wrap">
 <span class="eyebrow">Cos'è un ritiro itinerante</span>
 <h2 class="big">Un viaggio per scoprire un posto nuovo. <em>E un ritiro per ritrovare te.</em></h2>
-<div class="mani-grid">
+<div class="mani-grid scroll-row">
 <div><h3>Un viaggio vero</h3><p>Attraversiamo dune, templi e villaggi insieme alle persone che ci vivono, e nel frattempo pensiamo noi a tutto il resto, dagli alloggi ai trasporti, dai pasti alle guide locali.</p></div>
 <div><h3>Un ritiro vero</h3><p>Ogni giorno c'è spazio per la pratica, per un po' di silenzio e per un cerchio serale in cui raccontarsi. Non serve nessuna esperienza, perché le pratiche sono pensate per chiunque, anche per chi non le ha mai provate.</p></div>
 <div><h3>Un gruppo vero</h3><p>Siamo al massimo dodici persone, quindi si parte da sconosciuti ma quasi sempre si torna da amici. E quando il viaggio finisce la community continua, con incontri e serate nelle vostre città.</p></div>
@@ -45,15 +45,12 @@
 <span class="eyebrow">I Viaggiatori Itineranti</span>
 <h2>Questi ritiri sono per te se...</h2>
 <div class="perte-grid">
-<div class="pt">sei in un momento di passaggio e non sai ancora verso cosa</div>
+<div class="pt">ti senti un po' perso e hai bisogno di ritrovare la tua direzione</div>
 <div class="pt">ti mancano gli gnocchi al ragù di tua nonna <small>(quelli non li abbiamo, ma ti capiamo)</small></div>
-<div class="pt">vuoi cambiare vita, o almeno lavoro</div>
-<div class="pt">ti hanno lasciato. O hai lasciato tu</div>
+<div class="pt">vuoi lasciare il lavoro, ma non hai ancora capito come</div>
 <div class="pt">il tuo telefono ti conosce meglio di te</div>
+<div class="pt">senti il bisogno di fermarti e ascoltarti, lontano dal rumore di tutti i giorni</div>
 <div class="pt">dici "quest'anno mi prendo del tempo per me" da tre anni</div>
-<div class="pt">lavori tanto e respiri poco</div>
-<div class="pt">hai 35 schede aperte nel cervello e nessuna si chiude</div>
-<div class="pt">vuoi viaggiare da solo, ma non da solo</div>
 </div>
 <p class="perte-end">Se ti sei riconosciuto in almeno una, sei già uno di noi: <strong>un Viaggiatore Itinerante</strong>.</p>
 </div></section>
@@ -90,24 +87,15 @@
 <div class="dep-grid scroll-row" id="dep-grid"></div>
 </div></section>
 
-<section><div class="wrap">
+<section class="dark" id="come-funziona"><div class="wrap">
 <span class="eyebrow">Come funziona</span><h2>Tre passi, al resto pensiamo noi</h2>
-<div class="how">
-<div class="how-step"><span>1</span><h3>Scegli il posto</h3><p>Puoi scegliere tra il deserto, il fiume e le valli di pietra: guarda quanto è impegnativo ciascun viaggio e prendi quello che senti più tuo.</p></div>
-<div class="how-step"><span>2</span><h3>Scegli con chi partire</h3><p>Ogni partenza ha il suo insegnante e il suo tema, che può essere il respiro, lo yoga, la meditazione, l'astrologia o il suono, e così lo stesso posto diventa ogni volta un'esperienza diversa.</p></div>
-<div class="how-step"><span>3</span><h3>Parti leggero</h3><p>Nella quota è incluso tutto tranne i voli e l'assicurazione, quindi a te resta solo da portare te stesso e un po' di voglia di ascoltarti.</p></div>
+<div class="how scroll-row">
+<div class="how-step"><span>1</span><h3>Scegli il viaggio</h3><p>Scegli il posto che ti chiama e l'insegnante con cui partire, perché ogni partenza ha il suo tema. Nella quota è incluso tutto tranne i voli e l'assicurazione.</p></div>
+<div class="how-step"><span>2</span><h3>Vivi il ritiro</h3><p>Prima di partire ci conosciamo con una chiamata di gruppo, poi durante il viaggio la mattina si pratica, di giorno si esplora e la sera ci si racconta in cerchio.</p></div>
+<div class="how-step"><span>3</span><h3>Resta nella community</h3><p>Un mese dopo il ritorno ci rivediamo online, e nel frattempo ci ritroviamo dal vivo a Milano, Roma, Torino e Lisbona.</p></div>
 </div></div></section>
 
-<section class="dark" id="la-community"><div class="wrap">
-<span class="eyebrow">La community dei Viaggiatori Itineranti</span><h2>Il viaggio inizia prima e continua dopo</h2>
-<div class="how">
-<div class="how-step"><span>Prima</span><h3>Ci si conosce</h3><p>Prima della partenza facciamo una chiamata di gruppo con l'insegnante e apriamo una chat, così si arriva già un po' amici.</p></div>
-<div class="how-step"><span>Durante</span><h3>Ci si ascolta</h3><p>La mattina si pratica, durante il giorno si esplora e la sera ci si ritrova in cerchio per raccontare cosa si sta muovendo dentro.</p></div>
-<div class="how-step"><span>Dopo</span><h3>Ci si ritrova</h3><p>Un mese dopo il ritorno ci rivediamo online, e nel frattempo organizziamo serate dal vivo a Milano, Roma, Torino e Lisbona.</p></div>
-</div>
-</div></section>
-
-<section style="padding-top:0"><div class="wrap"><div class="net-band">
+<section><div class="wrap"><div class="net-band">
 <div><span class="eyebrow">I nostri insegnanti</span><h2>Scelti da noi, confermati da voi</h2><p>Nel nostro network ci sono insegnanti di yoga e di respiro, astrologi, musicisti e coach, che scegliamo uno a uno. Dopo ogni viaggio sono poi i partecipanti a dare il loro voto, e a guidare le partenze successive continua soltanto chi la community premia.</p>
 <div class="actions" style="display:flex;gap:12px;flex-wrap:wrap;margin-top:20px"><a class="btn" href="network.html">Conosci gli insegnanti</a><a class="btn ghost" href="diventa-facilitatore.html">Insegni? Parti con noi</a></div></div>
 <div class="net-faces" id="net-faces"></div>
