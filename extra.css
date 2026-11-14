@@ -597,3 +597,16 @@ html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
   .mani-grid.scroll-row{margin-top:20px}
 }
 .search-hint:empty{display:none}
+
+/* --- Accessibilità e privacy --- */
+.skip{position:absolute;left:12px;top:-60px;z-index:999;background:var(--ink);color:#fff;padding:10px 16px;border-radius:8px;font-weight:700;text-decoration:none}
+.skip:focus{top:12px}
+a:focus-visible,button:focus-visible,summary:focus-visible,[tabindex]:focus-visible{outline:3px solid var(--terra);outline-offset:3px}
+.search select:focus-visible{outline:3px solid var(--terra);outline-offset:2px;border-radius:4px}
+.site-footer h2{font-family:inherit;font-size:.8rem;font-weight:700;text-transform:uppercase;letter-spacing:.14em;margin:0 0 12px;color:var(--ink-soft)}
+.privacy-note{font-size:.85rem;color:var(--ink-soft);margin:6px 0 0;grid-column:1/-1}
+.privacy-note a,.copy a{color:inherit;text-decoration:underline}
+.legal-text{max-width:46em}.legal-text h2{margin-top:2em;font-size:1.5rem}.legal-text li{margin:.4em 0}
+.join .eyebrow,.quiz-teaser .eyebrow{color:var(--saffron)}
+.collab .eyebrow{color:#9A3C22}
+.join .privacy-note{color:#D9D2C6}

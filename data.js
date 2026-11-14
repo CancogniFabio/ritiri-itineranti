@@ -126,17 +126,28 @@ window.RI = {
   // ---------- booking modal (demo) ----------
   var modal = document.getElementById('book-modal');
   if (modal) {
+    var opener = null;
+    function closeModal() { modal.hidden = true; if (opener) opener.focus(); }
     var form = modal.querySelector('form'), title = modal.querySelector('.modal-title'), done = modal.querySelector('.modal-done');
     document.addEventListener('click', function (e) {
       var b = e.target.closest('[data-book]');
       if (b) {
         var d = D.departures.filter(function (x) { return x.id === b.getAttribute('data-book'); })[0];
         title.textContent = D.destinations[d.dest].country + ' · ' + D.destinations[d.dest].name + ' · ' + d.date;
-        form.hidden = false; done.hidden = true; modal.hidden = false; modal.querySelector('input').focus();
+        opener = b; form.hidden = false; done.hidden = true; modal.hidden = false; modal.querySelector('input').focus();
       }
-      if (e.target.closest('[data-close]') || e.target === modal) modal.hidden = true;
+      if (e.target.closest('[data-close]') || e.target === modal) closeModal();
     });
-    document.addEventListener('keydown', function (e) { if (e.key === 'Escape') modal.hidden = true; });
+    document.addEventListener('keydown', function (e) {
+      if (modal.hidden) return;
+      if (e.key === 'Escape') { closeModal(); return; }
+      if (e.key === 'Tab') { // tiene il focus dentro la finestra
+        var els = Array.prototype.filter.call(modal.querySelectorAll('button,input,textarea,select,a[href]'), function (el) { return el.offsetParent !== null; });
+        if (!els.length) return; var first = els[0], last = els[els.length - 1];
+        if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+        else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+      }
+    });
     form.addEventListener('submit', function (e) { e.preventDefault(); form.hidden = true; done.hidden = false; });
   }
 
